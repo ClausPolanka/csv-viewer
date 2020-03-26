@@ -8,3 +8,5 @@ with [sample data (zip)](https://ccd-school.de/downloads/codingdojo/CSVViewer.zi
 * [Iteration 3](https://ccd-school.de/coding-dojo/agility-katas/viewing-csv-files-iii/)
 * [Iteration 4](https://ccd-school.de/coding-dojo/agility-katas/viewing-csv-files-iv/)
 * [Iteration 5](https://ccd-school.de/coding-dojo/agility-katas/viewing-csv-files-v/)
+
+[![Floobits Status](https://floobits.com/sageniuz/csv-viewer.svg)](https://floobits.com/sageniuz/csv-viewer/redirect)
