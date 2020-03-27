@@ -1,6 +1,7 @@
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.io.PrintStream
 
 class AppTest : StringSpec({
@@ -9,7 +10,19 @@ class AppTest : StringSpec({
     System.setOut(PrintStream(programOutput))
 
     "display first of three pages of a csv file past as argument" {
-        main("test.csv")
+        val csvFile = createCsvFile("""
+                    Name;Age;City
+                    Peter;42;NewYork
+                    Paul;57;London
+                    Mary;35;Munich
+                    Jaques;66;Paris
+                    Yuri;23;Moscow
+                    Stephanie;47;Stockholm
+                    Nadia;29;Madrid
+                """)
+
+        main(csvFile.absolutePath)
+
         programOutput.toString() shouldBe """
              Name|Age|City   |
             -----+---+-------+
@@ -20,3 +33,9 @@ class AppTest : StringSpec({
         """.trimIndent()
     }
 })
+
+private fun createCsvFile(content: String): File {
+    val file = createTempFile(suffix = ".csv")
+    file.writeText(content.trimIndent())
+    return file
+}
